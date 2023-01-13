@@ -1,0 +1,24 @@
+import 'package:flutter/services.dart';
+import 'package:flutter_getx/models/product_model.dart';
+import 'package:get/get.dart';
+
+class CartController extends  GetxController {
+  // add a dict to store the product in cart
+  var _products={}.obs;
+
+  void addProduct(Product product){
+    if (_products.containsKey(product)) {
+      _products[product] +1;
+    } else {
+      _products[product] = 1;
+    }
+
+    Get.snackbar(
+    "Product add", 
+    "You have added the ${product.name} to the cart",
+    snackPosition: SnackPosition.BOTTOM,
+    duration: Duration(seconds: 2),
+    );
+  }
+
+}
