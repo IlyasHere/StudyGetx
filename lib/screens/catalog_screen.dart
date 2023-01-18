@@ -13,9 +13,9 @@ class CatalogScreen extends StatelessWidget {
       child: Column(
        children: [
         CatalogProduct(),
-        ElevatedButton(
-         onPressed: () => Get.to(() => CartScreen()) ,
-         child: Text ('Go to Cart'))
+        // ElevatedButton(
+        //  onPressed: () => Get.to(() => CartScreen()) ,
+        //  child: Text ('Go to Cart'))
        ],
       ),  
     ),
