@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_getx/widgets/catalog_product.dart';
 import 'package:get/get.dart';
 
+import 'cart_screen.dart';
+
 class CatalogScreen extends StatelessWidget {
   const CatalogScreen({Key? key}) : super(key: key);
 
@@ -13,9 +15,9 @@ class CatalogScreen extends StatelessWidget {
       child: Column(
        children: [
         CatalogProduct(),
-        // ElevatedButton(
-        //  onPressed: () => Get.to(() => CartScreen()) ,
-        //  child: Text ('Go to Cart'))
+        ElevatedButton(
+         onPressed: () => Get.to(() => CartScreen()) ,
+         child: Text ('Go to Cart'))
        ],
       ),  
     ),
