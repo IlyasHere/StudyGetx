@@ -8,7 +8,7 @@ class CartController extends GetxController {
 
   void addProduct(Product product) {
     if (_products.containsKey(product)) {
-      _products[product] + 1;
+      _products[product] += 1;
     } else {
       _products[product] = 1;
     }
@@ -17,7 +17,7 @@ class CartController extends GetxController {
       "Product add",
       "You have added the ${product.name} to the cart",
       snackPosition: SnackPosition.BOTTOM,
-      duration: Duration(seconds: 2),
+      duration: Duration(seconds: 1),
     );
   }
 

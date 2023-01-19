@@ -11,11 +11,13 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Your Cart")),
-      body: Column(
-        children: [
-          CartProduct(),
-          CartTotal(),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            CartProduct(),
+            CartTotal(),
+          ],
+        ),
       ),
     );
   }
