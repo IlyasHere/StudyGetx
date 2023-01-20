@@ -3,10 +3,9 @@ import 'package:flutter_getx/screens/cart_screen.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/catalog_screen.dart';
+import 'auth/login.dart';
 
-
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   // await Firebase.initializeApp(
@@ -24,11 +23,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-       
         primarySwatch: Colors.blue,
       ),
-      home: CatalogScreen(),
+      home: MyApp(),
     );
   }
 }
-
