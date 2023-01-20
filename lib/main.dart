@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/login_page.dart';
 import 'package:flutter_getx/screens/cart_screen.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/catalog_screen.dart';
-import 'auth/login.dart';
+import 'package:flutter_getx/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,11 +22,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyApp(),
+      home: LoginPage(),
     );
   }
 }
