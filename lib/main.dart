@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx/screens/cart_screen.dart';
+import 'package:flutter_getx/auth/login.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/catalog_screen.dart';
-import 'auth/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyApp(),
+      home: Login(),
     );
   }
 }
