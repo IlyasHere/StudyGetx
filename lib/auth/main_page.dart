@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/auth/auth_page.dart';
 import 'package:flutter_getx/auth/login_page.dart';
 import 'package:flutter_getx/screens/catalog_screen.dart';
 
@@ -18,9 +19,9 @@ class _MainPageState extends State<MainPage> {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot){
           if(snapshot.hasData){
-            return CatalogScreen();
+            return CatalogScreen(showRegisterPage: null,);
           }else{
-            return LoginPage();
+            return AuthPage();
           }
         },
       ),

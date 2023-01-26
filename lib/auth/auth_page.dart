@@ -3,8 +3,6 @@ import 'package:flutter_getx/auth/login_page.dart';
 import 'package:flutter_getx/auth/register_page.dart';
 import 'package:flutter_getx/screens/catalog_screen.dart';
 
-
-
 class AuthPage extends StatefulWidget {
   const AuthPage({Key? key}) : super(key: key);
 
@@ -25,9 +23,9 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     if (showLoginPage){
-    return CatalogScreen(showRegisterPage: toogleScreen());
+    return LoginPage(showRegisterPage: toogleScreen);
   } else {
-    return RegisterPage(showLoginPage: toogleScreen());
+    return RegisterPage(showLoginPage: toogleScreen);
   }
   }
 }
