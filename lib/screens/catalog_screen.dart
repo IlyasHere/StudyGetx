@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'cart_screen.dart';
 
 class CatalogScreen extends StatelessWidget {
-  const CatalogScreen({Key? key, required void showRegisterPage}) : super(key: key);
+  const CatalogScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

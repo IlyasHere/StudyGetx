@@ -54,11 +54,6 @@ class _RegisterPageState extends State<RegisterPage> {
            child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              //logo
-              Icon(
-                Icons.android,
-                size: 100,
-              ),
               SizedBox(height: 75),
 
               //hello again
@@ -104,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding:const EdgeInsets.symmetric(horizontal: 25.0 ),
                 child: TextField(
                   obscureText: true,
-                  controller: _emailController,
+                  controller: _passwordController,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white),
