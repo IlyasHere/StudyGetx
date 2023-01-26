@@ -148,7 +148,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   GestureDetector(
-                    OnTap: widget.showRegisterPage
+                    onTap: widget.showRegisterPage,
                     child: Text(
                       'Register now',
                       style: TextStyle(
