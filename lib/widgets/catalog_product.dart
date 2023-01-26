@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/controllers/cart_controller.dart';
 import 'package:flutter_getx/controllers/products_controller.dart';
@@ -21,7 +22,6 @@ class  CatalogProduct extends StatelessWidget {
 
 class CatalogProductCard extends StatelessWidget {
   final cartController = Get.put(CartController());
-  // final cartController = Get.put(CartController());
 
   final ProdcutController prodcutController = Get.find();
   final int index;

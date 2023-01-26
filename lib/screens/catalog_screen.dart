@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/widgets/catalog_product.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,13 @@ class CatalogScreen extends StatelessWidget {
     body: SafeArea(
       child: Column(
        children: [
+         MaterialButton(
+             onPressed: () {
+               FirebaseAuth.instance.signOut();
+             },
+           color: Colors.blue,
+           child: Text("Sign Out"),
+         ),
         CatalogProduct(),
         ElevatedButton(
          onPressed: () => Get.to(() => CartScreen()) ,
