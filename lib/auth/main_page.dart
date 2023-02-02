@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot){
           if(snapshot.hasData){
-            return CatalogScreen(showRegisterPage: null,);
+            return CatalogScreen();
           }else{
             return AuthPage();
           }

@@ -2,6 +2,7 @@
     package="com.example.flutter_getx">
    <application
         android:label="flutter_getx"
+        android:usesCleartextTraffic="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
