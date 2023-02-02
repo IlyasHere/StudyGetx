@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/auth/auth_page.dart';
-import 'package:flutter_getx/auth/login_page.dart';
 import 'package:flutter_getx/screens/catalog_screen.dart';
 
 class MainPage extends StatefulWidget {
@@ -19,7 +18,7 @@ class _MainPageState extends State<MainPage> {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot){
           if(snapshot.hasData){
-            return CatalogScreen(showRegisterPage: null,);
+            return CatalogScreen();
           }else{
             return AuthPage();
           }
