@@ -40,4 +40,12 @@ class CartController extends GetxController {
       .toList()
       .reduce((value, element) => value + element)
       .toStringAsFixed(2);
+
+  String listShoppingCartTotal() => products.isNotEmpty
+      ? products.entries
+      .map((product) => product.key.price! * product.value)
+      .toList()
+      .reduce((value, element) => value + element)
+      .toStringAsFixed(2)
+      : 'is Empty';
 }
