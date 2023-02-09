@@ -11,37 +11,37 @@ class CatalogScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
-      appBar: AppBar(title: Row(
-        children: [
-          Text("Catalog"),
-          Spacer(),
-          Text(
+    appBar: AppBar(title: Row(
+      children: [
+        Text("Catalog"),
+        Spacer(),
+        Text(
             user.email.toString(),
-            style: TextStyle(
-                fontSize: 10
-            ),
+          style: TextStyle(
+            fontSize: 10
           ),
-          Spacer(),
-          MaterialButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-            },
-            color: Colors.red,
-            child: Text("Sign Out"),
-          ),
-        ],
-      )),
-      body: SafeArea(
-        child: Column(
-          children: [
-            CatalogProduct(),
-            ElevatedButton(
-                onPressed: () => Get.to(() => CartScreen()) ,
-                child: Text ('Go to Cart'))
-          ],
         ),
-      ),
-    );
+        Spacer(),
+        MaterialButton(
+          onPressed: () {
+            FirebaseAuth.instance.signOut();
+          },
+          color: Colors.red,
+          child: Text("Sign Out"),
+        ),
+      ],
+    )),
+    body: SafeArea(
+      child: Column(
+       children: [
+        CatalogProduct(),
+        ElevatedButton(
+         onPressed: () => Get.to(() => CartScreen()) ,
+         child: Text ('Go to Cart'))
+       ],
+      ),  
+    ),
+  );
   }
 }
 

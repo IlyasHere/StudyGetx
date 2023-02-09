@@ -1,8 +1,6 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
@@ -42,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
               // Hello Again
               Text(
                 'Hello Again!',
-                style: TextStyle(
+                style: GoogleFonts.bebasNeue(
                   fontWeight: FontWeight.bold,
                   fontSize: 36,
                 ),
