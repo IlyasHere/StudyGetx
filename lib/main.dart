@@ -1,34 +1,42 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_getx/auth/login_page.dart';
-import 'package:flutter_getx/auth/main_page.dart';
-import 'package:flutter_getx/screens/cart_screen.dart';
-import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'screens/catalog_screen.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_getx/auth/main_page.dart';
+import 'package:get/get.dart';
+import 'firebase_options.dart';
+import 'models/push_notifcation_config.dart';
 
+Future<void> _firebaseMessagingBackgroundHandler(message) async {
+  await Firebase.initializeApp();
+  print('Handling a background message ${message.messageId}');
+}
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await Firebase.initializeApp();
+  await PushNotificationConfig().requestPermission();
+  await PushNotificationConfig().androidNotificationChanel();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+      home: const MainPage(),
     );
   }
 }
