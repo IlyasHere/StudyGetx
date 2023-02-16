@@ -8,9 +8,13 @@ class CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
     return Obx(
           () => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 75),
+        padding: EdgeInsets.symmetric(
+          horizontal:  currentWidth > 600 ? 225 : 75,
+          vertical: 20
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

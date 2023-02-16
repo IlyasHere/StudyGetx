@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../widgets/cart_product.dart';
 import '../widgets/cart_total.dart';
-import '../widgets/widgets.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -12,11 +10,13 @@ class CartScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Your Cart")),
       body: SafeArea(
-        child: Column(
-          children: [
-            CartProduct(),
-            CartTotal(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CartProduct(),
+              CartTotal(),
+            ],
+          ),
         ),
       ),
     );
