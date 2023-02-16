@@ -1,6 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../models/push_notifcation_config.dart';
+
+// Future<void> _firebaseMessagingBackgroundHandler(message) async {
+//   await Firebase.initializeApp();
+//   print('Handling a background message ${message.messageId}');
+// }
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
@@ -15,6 +24,13 @@ class _LoginPageState extends State<LoginPage> {
   final _passwordController = TextEditingController();
 
   Future signIn() async{
+    // WidgetsFlutterBinding.ensureInitialized();
+    // await Firebase.initializeApp();
+    // await Firebase.initializeApp();
+    // await PushNotificationConfig().requestPermission();
+    // await PushNotificationConfig().androidNotificationChanel();
+    // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim()
@@ -40,9 +56,9 @@ class _LoginPageState extends State<LoginPage> {
               // Hello Again
               Text(
                 'Hello Again!',
+
                 style: GoogleFonts.bebasNeue(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 36,
+                  fontSize: 52,
                 ),
               ),
               SizedBox(
@@ -117,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Container(
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.deepPurple,
+                      color: Colors.blue,
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(

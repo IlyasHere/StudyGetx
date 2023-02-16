@@ -144,6 +144,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       onTap: signUp,
                       child: Container(
                         padding: EdgeInsets.all(20),
+                        margin: EdgeInsets.only(top: 10),
                         decoration: BoxDecoration(
                           color: Colors.deepPurple,
                           borderRadius: BorderRadius.circular(12),
