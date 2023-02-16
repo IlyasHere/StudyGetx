@@ -3,7 +3,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx/auth/main_page.dart';
 import 'package:get/get.dart';
-import 'firebase_options.dart';
 import 'models/push_notifcation_config.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(message) async {

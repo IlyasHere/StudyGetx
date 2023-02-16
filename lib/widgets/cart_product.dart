@@ -11,9 +11,10 @@ class CartProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() =>
-      SizedBox(
-          height: 400,
-          child: ListView.builder(
+          // height: MediaQuery.of(context).size.height,
+       ListView.builder(
+          shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             itemCount: controller.products.length,
             itemBuilder: (BuildContext context, int index) {
               return CartProductCard(
@@ -24,7 +25,7 @@ class CartProduct extends StatelessWidget {
               );
             },
           ),
-        ),
+
     );
   }
 }
@@ -45,8 +46,11 @@ class CartProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+      padding: EdgeInsets.symmetric(
+          horizontal: currentWidth > 600 ? 150 : 20,
+          vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

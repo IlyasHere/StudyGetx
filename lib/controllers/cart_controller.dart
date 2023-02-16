@@ -1,4 +1,3 @@
-import 'package:flutter/services.dart';
 import 'package:flutter_getx/models/product_model.dart';
 import 'package:get/get.dart';
 
