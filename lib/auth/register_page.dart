@@ -157,7 +157,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: Container(
                       padding: EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                        color: Colors.blue,
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(

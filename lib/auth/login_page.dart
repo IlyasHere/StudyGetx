@@ -49,7 +49,6 @@ class _LoginPageState extends State<LoginPage> {
               // Hello Again
               Text(
                 'Hello Again!',
-
                 style: GoogleFonts.bebasNeue(
                   fontSize: 52,
                 ),
@@ -155,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: currentWidth > 600 ? 200 : 20,
-                  vertical: 10,
+                  vertical: 1,
                 ),
                 child: GestureDetector(
                   onTap: signIn,
@@ -166,13 +165,15 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(
-                        child: Text(
-                      'Login',
-                      style: TextStyle(
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18),
-                    )),
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
