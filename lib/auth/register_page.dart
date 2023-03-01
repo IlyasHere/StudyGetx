@@ -55,8 +55,6 @@ class _RegisterPageState extends State<RegisterPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 75),
-
-              //hello again
               Text(
                 'Hello There',
                 style: GoogleFonts.bebasNeue(
@@ -153,7 +151,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         child: Center(
                           child: Text(
-                            'Sign in',
+                            'Sign Up',
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
