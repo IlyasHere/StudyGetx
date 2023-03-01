@@ -14,11 +14,10 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  Future signIn() async{
+  Future signIn() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailController.text.trim(),
-        password: _passwordController.text.trim()
-    );
+        password: _passwordController.text.trim());
   }
 
   @override
@@ -30,6 +29,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
@@ -57,21 +57,26 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               // Email Textfield
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(15),
+              SizedBox(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: currentWidth > 600 ? 150 : 20,
+                    vertical: 1,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: TextField(
-                      controller: _emailController,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Email',
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                        controller: _emailController,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Email',
+                        ),
                       ),
                     ),
                   ),
@@ -82,22 +87,50 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               // Password Textfield
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(color: Colors.white),
-                    borderRadius: BorderRadius.circular(15),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              //   child: Expanded(
+              //     child: Container(
+              //       decoration: BoxDecoration(
+              //         color: Colors.grey[200],
+              //         border: Border.all(color: Colors.white),
+              //         borderRadius: BorderRadius.circular(15),
+              //       ),
+              //       child: Padding(
+              //         padding: const EdgeInsets.only(left: 20.0),
+              //         child: TextField(
+              //           controller: _passwordController,
+              //           obscureText: true,
+              //           decoration: InputDecoration(
+              //             border: InputBorder.none,
+              //             hintText: 'Password',
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              SizedBox(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: currentWidth > 600 ? 150 : 20,
+                    vertical: 1,
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: TextField(
-                      controller: _passwordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Password',
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey[200],
+                      border: Border.all(color: Colors.white),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: TextField(
+                        controller: _passwordController,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Password',
+                        ),
                       ),
                     ),
                   ),
@@ -109,7 +142,10 @@ class _LoginPageState extends State<LoginPage> {
 
               // Login Button
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: currentWidth > 600 ? 200 : 20,
+                  vertical: 1,
+                ),
                 child: GestureDetector(
                   onTap: signIn,
                   child: Container(
@@ -119,13 +155,15 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Center(
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        )),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
