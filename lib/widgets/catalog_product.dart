@@ -10,13 +10,28 @@ class CatalogProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentWidth = MediaQuery.of(context).size.width;
     return Obx(
-      () => Flexible(
-          child: ListView.builder(
+      () => currentWidth > 600 ?
+      Flexible(
+          child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 3,
+              ),
               itemCount: productController.products.length,
               itemBuilder: (BuildContext context, int index) {
                 return CatalogProductCard(index: index);
-              })),
+              })
+      )
+      :
+        Flexible(
+        child: ListView.builder(
+        itemCount: productController.products.length,
+    itemBuilder: (BuildContext context, int index) {
+      return CatalogProductCard(index: index);
+    })
+    ),
     );
   }
 }
@@ -37,7 +52,7 @@ class CatalogProductCard extends StatelessWidget {
     final currentWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: currentWidth > 600 ? 150 : 20,
+        horizontal: 20,
         vertical: 10,
       ),
       child: Row(children: [
@@ -49,10 +64,6 @@ class CatalogProductCard extends StatelessWidget {
         ),
         SizedBox(width: 20),
         Expanded(
-          // child: Text(
-          //   prodcutController.products[index].name,
-          //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-          // ),
           child: Text(
             prodcutController.products[index].name,
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
