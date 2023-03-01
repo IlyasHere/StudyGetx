@@ -1,15 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../models/push_notifcation_config.dart';
-
-// Future<void> _firebaseMessagingBackgroundHandler(message) async {
-//   await Firebase.initializeApp();
-//   print('Handling a background message ${message.messageId}');
-// }
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
@@ -46,7 +37,6 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Hello Again
               Text(
                 'Hello Again!',
                 style: GoogleFonts.bebasNeue(
