@@ -44,9 +44,148 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
+horizontalMode() {
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      padding: EdgeInsets.only(left: 24),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              'Hello There',
+              style: GoogleFonts.bebasNeue(
+                fontSize: 24,
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Register Below with your details!',
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            ),
+            SizedBox(
+              height: 50,
+            ),]
+          ),
+          SizedBox(width: 50,),
+          Container(
+            width: 250,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.deepPurple),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    hintText: 'Email',
+                    fillColor: Colors.grey[200],
+                    filled: true,
+                  ),
+                ),
+                SizedBox(height: 4,),
+                TextField(
+                  obscureText: true,
+                  controller: _passwordController,
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.deepPurple),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    hintText: 'Password',
+                    fillColor: Colors.grey[200],
+                    filled: true,
+                  ),
+                ),
+                SizedBox(height: 4,),
+
+                TextField(
+
+                  obscureText: true,
+                  controller: _confirmpasswordController,
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.deepPurple),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    hintText: 'Confirm Password',
+                    fillColor: Colors.grey[200],
+                    filled: true,
+                  ),
+                ),
+                SizedBox(height: 8,),
+
+                GestureDetector(
+                  onTap: signUp,
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                  Text(
+                    'I am a member!',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: widget.showLoginPage,
+                    child: Text(
+                      'Login Now',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ])
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+}
+
   Widget build(BuildContext context) {
     final currentWidth = MediaQuery.of(context).size.width;
-    return Scaffold(
+    return  currentWidth < 500 ? Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Center(
@@ -200,6 +339,6 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ),
       ),
-    );
+    ) : horizontalMode();
   }
 }
